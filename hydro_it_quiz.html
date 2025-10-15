@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hydro-IT Trivia Quiz</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .question { margin-bottom: 20px; }
+        .leaderboard { margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <h1>Hydro-IT Trivia Quiz</h1>
+    <form id="quizForm">
+        <label for="name">Enter your name:</label><br>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <!-- Questions -->
+        <div class="question">
+            <p><strong>Q1: What is the largest planet in our solar system?</strong></p>
+            <input type="radio" name="q0" value="Earth" required> Earth<br>
+            <input type="radio" name="q0" value="Mars"> Mars<br>
+            <input type="radio" name="q0" value="Jupiter"> Jupiter<br>
+            <input type="radio" name="q0" value="Saturn"> Saturn<br>
+        </div>
+
+        <div class="question">
+            <p><strong>Q2: Which of the following animals is known to have the longest lifespan?</strong></p>
+            <input type="radio" name="q1" value="Elephant" required> Elephant<br>
+            <input type="radio" name="q1" value="Tortoise"> Tortoise<br>
+            <input type="radio" name="q1" value="Whale"> Whale<br>
+            <input type="radio" name="q1" value="Parrot"> Parrot<br>
+        </div>
+
+        <div class="question">
+            <p><strong>Q3: What is the capital city of France?</strong></p>
+            <input type="radio" name="q2" value="Berlin" required> Berlin<br>
+            <input type="radio" name="q2" value="Madrid"> Madrid<br>
+            <input type="radio" name="q2" value="Paris"> Paris<br>
+            <input type="radio" name="q2" value="London"> London<br>
+        </div>
+
+        <div class="question">
+            <p><strong>Q4: Which movie features a giant shark named Jaws?</strong></p>
+            <input type="radio" name="q3" value="Titanic" required> Titanic<br>
+            <input type="radio" name="q3" value="Jaws"> Jaws<br>
+            <input type="radio" name="q3" value="Finding Nemo"> Finding Nemo<br>
+            <input type="radio" name="q3" value="Sharknado"> Sharknado<br>
+        </div>
+
+        <div class="question">
+            <p><strong>Q5: Which fruit is known as the "king of fruits" due to its strong smell?</strong></p>
+            <input type="radio" name="q4" value="Pineapple" required> Pineapple<br>
+            <input type="radio" name="q4" value="Durian"> Durian<br>
+            <input type="radio" name="q4" value="Mango"> Mango<br>
+            <input type="radio" name="q4" value="Banana"> Banana<br>
+        </div>
+
+        <div class="question">
+            <p><strong>Q6: What is the name of the famous wizarding school in the Harry Potter series?</strong></p>
+            <input type="radio" name="q5" value="Hogwarts" required> Hogwarts<br>
+            <input type="radio" name="q5" value="Narnia Academy"> Narnia Academy<br>
+            <input type="radio" name="q5" value="The Shire Institute"> The Shire Institute<br>
+            <input type="radio" name="q5" value="Rivendell Academy"> Rivendell Academy<br>
+        </div>
+
+        <div class="question">
+            <p><strong>Q7: What color is a giraffe's tongue?</strong></p>
+            <input type="radio" name="q6" value="Blue" required> Blue<br>
+            <input type="radio" name="q6" value="Pink"> Pink<br>
+            <input type="radio" name="q6" value="Purple"> Purple<br>
+            <input type="radio" name="q6" value="Green"> Green<br>
+        </div>
+
+        <div class="question">
+            <p><strong>Q8: Which country is the largest producer of coffee?</strong></p>
+            <input type="radio" name="q7" value="Colombia" required> Colombia<br>
+            <input type="radio" name="q7" value="Brazil"> Brazil<br>
+            <input type="radio" name="q7" value="Ethiopia"> Ethiopia<br>
+            <input type="radio" name="q7" value="Vietnam"> Vietnam<br>
+        </div>
+
+        <div class="question">
+            <p><strong>Q9: Which vegetable is known for making people cry when chopped?</strong></p>
+            <input type="radio" name="q8" value="Onion" required> Onion<br>
+            <input type="radio" name="q8" value="Garlic"> Garlic<br>
+            <input type="radio" name="q8" value="Carrot"> Carrot<br>
+            <input type="radio" name="q8" value="Tomato"> Tomato<br>
+        </div>
+
+        <div class="question">
+            <p><strong>Q10: Which of the following is not a type of cloud?</strong></p>
+            <input type="radio" name="q9" value="Cumulus" required> Cumulus<br>
+            <input type="radio" name="q9" value="Stratus"> Stratus<br>
+            <input type="radio" name="q9" value="Cirrus"> Cirrus<br>
+            <input type="radio" name="q9" value="Nimbus"> Nimbus<br>
+        </div>
+
+        <div class="question">
+            <p><strong>Q11: What is the primary purpose of a hydro-excavation truck?</strong></p>
+            <input type="radio" name="q10" value="To mix concrete" required> To mix concrete<br>
+            <input type="radio" name="q10" value="To dig holes using high-pressure water"> To dig holes using high-pressure water<br>
+            <input type="radio" name="q10" value="To collect waste from construction sites"> To collect waste from construction sites<br>
+            <input type="radio" name="q10" value="To clear snow"> To clear snow<br>
+        </div>
+
+        <div class="question">
+            <p><strong>Q12: Which programming language is commonly used in web development?</strong></p>
+            <input type="radio" name="q11" value="Python" required> Python<br>
+            <input type="radio" name="q11" value="HTML"> HTML<br>
+            <input type="radio" name="q11" value="Java"> Java<br>
+            <input type="radio" name="q11" value="Ruby"> Ruby<br>
+        </div>
+
+        <div class="question">
+            <p><strong>Q13: What type of IT system monitors a hydro-excavation truck’s GPS location?</strong></p>
+            <input type="radio" name="q12" value="ERP system" required> ERP system<br>
+            <input type="radio" name="q12" value="GPS tracking software"> GPS tracking software<br>
+            <input type="radio" name="q12" value="Financial management software"> Financial management software<br>
+            <input type="radio" name="q12" value="Social media platform"> Social media platform<br>
+        </div>
+
+        <div class="question">
+            <p><strong>Q14: What is the standard data protection regulation in the EU?</strong></p>
+            <input type="radio" name="q13" value="HIPAA" required> HIPAA<br>
+            <input type="radio" name="q13" value="GDPR"> GDPR<br>
+            <input type="radio" name="q13" value="CCPA"> CCPA<br>
+            <input type="radio" name="q13" value="PCI-DSS"> PCI-DSS<br>
+        </div>
+
+        <div class="question">
+            <p><strong>Q15: What is a “sandbox” in IT development?</strong></p>
+            <input type="radio" name="q14" value="A type of test environment" required> A type of test environment<br>
+            <input type="radio" name="q14" value="A place to store unused data"> A place to store unused data<br>
+            <input type="radio" name="q14" value="A backup storage solution"> A backup storage solution<br>
+            <input type="radio" name="q14" value="A web server software"> A web server software<br>
+        </div>
+
+        <div class="question">
+            <p><strong>Q16: What is the main benefit of hydro-excavation over traditional methods?</strong></p>
+            <input type="radio" name="q15" value="It's faster" required> It's faster<br>
+            <input type="radio" name="q15" value="It's safer for sensitive underground utilities"> It's safer for sensitive underground utilities<br>
+            <input type="radio" name="q15" value="It's cheaper"> It's cheaper<br>
+            <input type="radio" name="q15" value="It requires no permits"> It requires no permits<br>
+        </div>
+
+        <div class="question">
+            <p><strong>Q17: What does "IT" stand for?</strong></p>
+            <input type="radio" name="q16" value="Information Technology" required> Information Technology<br>
+            <input type="radio" name="q16" value="Intelligent Tools"> Intelligent Tools<br>
+            <input type="radio" name="q16" value="International Trades"> International Trades<br>
+            <input type="radio" name="q16" value="Internet Telephony"> Internet Telephony<br>
+        </div>
+
+        <div class="question">
+            <p><strong>Q18: Which company offers cloud services like AWS?</strong></p>
+            <input type="radio" name="q17" value="Microsoft" required> Microsoft<br>
+            <input type="radio" name="q17" value="Apple"> Apple<br>
+            <input type="radio" name="q17" value="Amazon"> Amazon<br>
+            <input type="radio" name="q17" value="Google"> Google<br>
+        </div>
+
+        <div class="question">
+            <p><strong>Q19: What is the function of a hydro-excavation vacuum system?</strong></p>
+            <input type="radio" name="q18" value="To collect debris from construction sites" required> To collect debris from construction sites<br>
+            <input type="radio" name="q18" value="To carry water to the excavation site"> To carry water to the excavation site<br>
+            <input type="radio" name="q18" value="To suck up excavated material into a debris tank"> To suck up excavated material into a debris tank<br>
+            <input type="radio" name="q18" value="To clean construction equipment"> To clean construction equipment<br>
+        </div>
+
+        <div class="question">
+            <p><strong>Q20: Which IT tool is used for project management in IT teams?</strong></p>
+            <input type="radio" name="q19" value="Photoshop" required> Photoshop<br>
+            <input type="radio" name="q19" value="Zoho"> Zoho<br>
+            <input type="radio" name="q19" value="Google Maps"> Google Maps<br>
+            <input type="radio" name="q19" value="Dropbox"> Dropbox<br>
+        </div>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <div class="leaderboard">
+        <h2>Leaderboard</h2>
+        <ul id="leaderboardList"></ul>
+    </div>
+
+    <p>✅ Finished the quiz? <a href="https://docs.google.com/forms/d/1srktML_omTDZ3qXxqDcvCTCEhEMK2EbB_Bnk0HygKKI/viewform" target="_blank">Submit your score here</a></p>
+
+    <script>
+        const correctAnswers = [
+            "Jupiter", "Tortoise", "Paris", "Jaws", "Durian", "Hogwarts", "Purple", "Brazil", "Onion", "Nimbus",
+            "To dig holes using high-pressure water", "HTML", "GPS tracking software", "GDPR", "A type of test environment",
+            "It's safer for sensitive underground utilities", "Information Technology", "Amazon", "To suck up excavated material into a debris tank", "Zoho"
+        ];
+
+        document.getElementById('quizForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let score = 0;
+            for (let i = 0; i < correctAnswers.length; i++) {
+                const selected = document.querySelector('input[name="q' + i + '"]:checked');
+                if (selected && selected.value === correctAnswers[i]) {
+                    score++;
+                }
+            }
+            const name = document.getElementById('name').value;
+            const leaderboard = JSON.parse(localStorage.getItem('leaderboard_hydro_it') || "[]");
+            leaderboard.push({ name: name, score: score });
+            leaderboard.sort((a, b) => b.score - a.score);
+            localStorage.setItem('leaderboard_hydro_it', JSON.stringify(leaderboard));
+            displayLeaderboard();
+            alert("Your score is " + score + ". You can now submit it using the link below.");
+        });
+
+        function displayLeaderboard() {
+            const leaderboard = JSON.parse(localStorage.getItem('leaderboard_hydro_it') || "[]");
+            const list = document.getElementById('leaderboardList');
+            list.innerHTML = "";
+            leaderboard.forEach(entry => {
+                const li = document.createElement('li');
+                li.textContent = entry.name + ": " + entry.score;
+                list.appendChild(li);
+            });
+        }
+
+        window.onload = displayLeaderboard;
+    </script>
+</body>
+</html>
