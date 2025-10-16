@@ -154,8 +154,13 @@
     }
 
     // Load leaderboard on page load
-    const savedLeaderboard = JSON.parse(localStorage.getItem('leaderboard_hydro_it') || "[]");
-    displayLeaderboard(savedLeaderboard);
+    fetch("https://script.google.com/macros/s/AKfycby_sWIlo7xXvJdG9Bu1ofU4XNUF4oS_MdDR8N8OotV-vcqoMcqaUqib0t4I3BM903_D/exec")
+  .then(response => response.json())
+  .then(data => displayLeaderboard(data))
+  .catch(error => {
+    console.error("Error loading leaderboard:", error);
+    document.getElementById("leaderboardList").innerHTML = "<li>Unable to load leaderboard.</li>";
+  });
   </script>
 </body>
 </html>
