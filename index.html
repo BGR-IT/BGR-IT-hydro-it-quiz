@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hydro-IT Trivia Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      color: #006699;
+    }
+    .question {
+      margin-bottom: 15px;
+    }
+    .leaderboard {
+      margin-top: 30px;
+      padding: 15px;
+      background-color: #e6f2ff;
+      border: 1px solid #99ccff;
+    }
+    .leaderboard h2 {
+      margin-top: 0;
+      color: #006699;
+    }
+    #leaderboardList {
+      list-style: none;
+      padding-left: 0;
+    }
+    #leaderboardList li {
+      margin-bottom: 5px;
+    }
+    .submit-section {
+      margin-top: 20px;
+    }
+    .score-display {
+      font-weight: bold;
+      margin-top: 20px;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hydro-IT Trivia Quiz</h1>
+  <form id="quizForm">
+    <label for="name">Your Name:</label><br/>
+    <input type="text" id="name" name="name" required/><br/><br/>
+
+    <div id="questions"></div>
+
+    <div class="submit-section">
+      <button type="submit">Submit Quiz</button>
+    </div>
+  </form>
+
+  <div class="score-display" id="scoreDisplay"></div>
+
+  <form id="googleForm" action="https://docs.google.com/forms/d/e/1FAIpQLSfoAXyvIMBwQ_mFSMz7Ot-8WxFbHtrutlz4VR_qPeZLBwQG3g/formResponse" method="POST" target="hidden_iframe" style="display:none;">
+    <input type="hidden" name="entry.2133793126" id="gName">
+    <input type="hidden" name="entry.1512765942" id="gScore">
+    <input type="hidden" name="entry.1357819382" id="gDate">
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
+  </form>
+
+  <div class="leaderboard">
+    <h2>Top 3 Leaderboard</h2>
+    <ul id="leaderboardList"><li>Loading...</li></ul>
+  </div>
+
+  <script>
+    const questions = [
+      { q: "What is the largest planet in our solar system?", a: "C" },
+      { q: "Which of the following animals is known to have the longest lifespan?", a: "B" },
+      { q: "What is the capital city of France?", a: "C" },
+      { q: "Which movie features a giant shark named Jaws?", a: "B" },
+      { q: "Which fruit is known as the 'king of fruits' due to its strong smell?", a: "B" },
+      { q: "What is the name of the famous wizarding school in the Harry Potter series?", a: "A" },
+      { q: "What color is a giraffe's tongue?", a: "C" },
+      { q: "Which country is the largest producer of coffee?", a: "B" },
+      { q: "Which vegetable is known for making people cry when chopped?", a: "A" },
+      { q: "Which of the following is not a type of cloud?", a: "D" },
+      { q: "What is the primary purpose of a hydro-excavation truck?", a: "B" },
+      { q: "Which of the following programming languages is commonly used in web development?", a: "B" },
+      { q: "What type of IT system would you use to monitor a hydro-excavation truck’s GPS location in real-time?", a: "B" },
+      { q: "What is the name of the standard data protection regulation in the European Union?", a: "B" },
+      { q: "What is a 'sandbox' in the context of IT development?", a: "A" },
+      { q: "What is the main benefit of using hydro-excavation over traditional excavation methods?", a: "B" },
+      { q: "What does 'IT' stand for?", a: "A" },
+      { q: "Which company is known for its popular cloud computing services like AWS?", a: "C" },
+      { q: "What is the main function of a hydro-excavation vacuum system?", a: "C" },
+      { q: "Which IT tool is commonly used for project management within an IT team?", a: "B" }
+    ];
+
+    const options = ["A", "B", "C", "D"];
+    const optionText = [
+      ["Earth", "Mars", "Jupiter", "Saturn"],
+      ["Elephant", "Tortoise", "Whale", "Parrot"],
+      ["Berlin", "Madrid", "Paris", "London"],
+      ["Titanic", "Jaws", "Finding Nemo", "Sharknado"],
+      ["Pineapple", "Durian", "Mango", "Banana"],
+      ["Hogwarts", "Narnia Academy", "The Shire Institute", "Rivendell Academy"],
+      ["Blue", "Pink", "Purple", "Green"],
+      ["Colombia", "Brazil", "Ethiopia", "Vietnam"],
+      ["Onion", "Garlic", "Carrot", "Tomato"],
+      ["Cumulus", "Stratus", "Cirrus", "Nimbus"],
+      ["To mix concrete", "To dig holes using high-pressure water", "To collect waste from construction sites", "To clear snow"],
+      ["Python", "HTML", "Java", "Ruby"],
+      ["ERP system", "GPS tracking software", "Financial management software", "Social media platform"],
+      ["HIPAA", "GDPR", "CCPA", "PCI-DSS"],
+      ["A type of test environment", "A place to store unused data", "A backup storage solution", "A web server software"],
+      ["It's faster", "It's safer for sensitive underground utilities", "It's cheaper", "It requires no permits"],
+      ["Information Technology", "Intelligent Tools", "International Trades", "Internet Telephony"],
+      ["Microsoft", "Apple", "Amazon", "Google"],
+      ["To collect debris from construction sites", "To carry water from the source to the excavation site", "To suck up the excavated material into a debris tank", "To clean construction equipment"],
+      ["Photoshop", "Zoho", "Google Maps", "Dropbox"]
+    ];
+
+    const questionsDiv = document.getElementById("questions");
+    questions.forEach((item, index) => {
+      const div = document.createElement("div");
+      div.className = "question";
+      div.innerHTML = `<strong>Q${index + 1}: ${item.q}</strong><br/>` +
+        options.map((opt, i) =>
+          `<label><input type="radio" name="q${index}" value="${opt}" required/> ${opt}) ${optionText[index][i]}</label><br/>`
+        ).join("");
+      questionsDiv.appendChild(div);
+    });
+
+    document.getElementById("quizForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      let score = 0;
+      questions.forEach((item, index) => {
+        const selected = document.querySelector(`input[name="q${index}"]:checked`);
+        if (selected && selected.value === item.a) score++;
+      });
+      const name = document.getElementById("name").value;
+      document.getElementById("scoreDisplay").textContent = `Hi ${name}, you scored ${score} out of ${questions.length}!`;
+
+      // Submit to Google Form
+      document.getElementById("gName").value = name;
+      document.getElementById("gScore").value = score;
+      document.getElementById("gDate").value = new Date().toISOString().split("T")[0];
+      document.getElementById("googleForm").submit();
+    });
+
+    // Fetch leaderboard from published Google Sheet
+    fetch("https://docs.google.com/spreadsheets/d/1rZ_wnIie-t2vOrS0oa6RNC8QYHKhfvwP5-3ZAHE_wek/gviz/tq?tqx=out:json&tq=select B,C order by C desc limit 3")
+      .then(res => res.text())
+      .then(text => {
+        const json = JSON.parse(text.substr(47).slice(0, -2));
+        const rows = json.table.rows;
+        const list = document.getElementById("leaderboardList");
+        list.innerHTML = "";
+        rows.forEach(row => {
+          const name = row.c[0]?.v || "Anonymous";
+          const score = row.c[1]?.v || 0;
+          const li = document.createElement("li");
+          li.textContent = `${name}: ${score} pts`;
+          list.appendChild(li);
+        });
+      })
+      .catch(err => {
+        document.getElementById("leaderboardList").innerHTML = "<li>Unable to load leaderboard.</li>";
+        console.error("Leaderboard fetch error:", err);
+      });
+  </script>
+</body>
+</html>
