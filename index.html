@@ -1,152 +1,225 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hydro-IT Trivia Quiz</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f4f4;
-      padding: 20px;
-      max-width: 800px;
-      margin: auto;
-    }
-    h1, h2 {
-      text-align: center;
-    }
-    .question {
-      margin-bottom: 20px;
-    }
-    .question p {
-      font-weight: bold;
-    }
-    .leaderboard {
-      background: #fff;
-      padding: 15px;
-      border-radius: 8px;
-      margin-top: 30px;
-    }
-    .leaderboard ul {
-      list-style: none;
-      padding: 0;
-    }
-    .leaderboard li {
-      padding: 5px 0;
-    }
-    .result {
-      font-size: 1.2em;
-      font-weight: bold;
-      margin-top: 20px;
-      text-align: center;
-    }
-    button {
-      display: block;
-      margin: 20px auto;
-      padding: 10px 20px;
-      font-size: 1em;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Badger Hydro IT Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            color: #2c3e50;
+        }
+        .quiz-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .question h3 {
+            margin-bottom: 10px;
+        }
+        .leaderboard {
+            margin-top: 40px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .score {
+            font-size: 1.2em;
+            color: green;
+            margin-top: 20px;
+        }
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 1em;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="text"] {
+            padding: 8px;
+            font-size: 1em;
+            width: 300px;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-  <h1>Hydro-IT Trivia Quiz</h1>
-  <form id="quizForm">
-    <label for="username"><strong>Your Name:</strong></label><br/>
-    <input type="text" id="username" name="username" required style="width: 100%; padding: 8px; margin-bottom: 20px;" />
+    <h1>Badger Hydro IT Quiz</h1>
+    <div class="quiz-container">
+        <form id="quizForm">
+            <label for="username"><strong>Your Name:</strong></label><br>
+            <input type="text" id="username" name="username" required><br><br>
 
-    <div id="questions"></div>
+            <div class="question"><h3>1. What is the largest planet in our solar system?</h3>
+                <label><input type="radio" name="q0" value="Earth" required> Earth</label><br>
+                <label><input type="radio" name="q0" value="Mars" required> Mars</label><br>
+                <label><input type="radio" name="q0" value="Jupiter" required> Jupiter</label><br>
+                <label><input type="radio" name="q0" value="Saturn" required> Saturn</label><br>
+                <input type="hidden" name="a0" value="Jupiter">
+            </div>
+            <div class="question"><h3>2. Which of the following animals is known to have the longest lifespan?</h3>
+                <label><input type="radio" name="q1" value="Elephant" required> Elephant</label><br>
+                <label><input type="radio" name="q1" value="Tortoise" required> Tortoise</label><br>
+                <label><input type="radio" name="q1" value="Whale" required> Whale</label><br>
+                <label><input type="radio" name="q1" value="Parrot" required> Parrot</label><br>
+                <input type="hidden" name="a1" value="Tortoise">
+            </div>
+            <div class="question"><h3>3. What is the capital city of France?</h3>
+                <label><input type="radio" name="q2" value="Berlin" required> Berlin</label><br>
+                <label><input type="radio" name="q2" value="Madrid" required> Madrid</label><br>
+                <label><input type="radio" name="q2" value="Paris" required> Paris</label><br>
+                <label><input type="radio" name="q2" value="London" required> London</label><br>
+                <input type="hidden" name="a2" value="Paris">
+            </div>
+            <div class="question"><h3>4. Which movie features a giant shark named Jaws?</h3>
+                <label><input type="radio" name="q3" value="Titanic" required> Titanic</label><br>
+                <label><input type="radio" name="q3" value="Jaws" required> Jaws</label><br>
+                <label><input type="radio" name="q3" value="Finding Nemo" required> Finding Nemo</label><br>
+                <label><input type="radio" name="q3" value="Sharknado" required> Sharknado</label><br>
+                <input type="hidden" name="a3" value="Jaws">
+            </div>
+            <div class="question"><h3>5. Which fruit is known as the "king of fruits" due to its strong smell?</h3>
+                <label><input type="radio" name="q4" value="Pineapple" required> Pineapple</label><br>
+                <label><input type="radio" name="q4" value="Durian" required> Durian</label><br>
+                <label><input type="radio" name="q4" value="Mango" required> Mango</label><br>
+                <label><input type="radio" name="q4" value="Banana" required> Banana</label><br>
+                <input type="hidden" name="a4" value="Durian">
+            </div>
+            <div class="question"><h3>6. What is the name of the famous wizarding school in the Harry Potter series?</h3>
+                <label><input type="radio" name="q5" value="Hogwarts" required> Hogwarts</label><br>
+                <label><input type="radio" name="q5" value="Narnia Academy" required> Narnia Academy</label><br>
+                <label><input type="radio" name="q5" value="The Shire Institute" required> The Shire Institute</label><br>
+                <label><input type="radio" name="q5" value="Rivendell Academy" required> Rivendell Academy</label><br>
+                <input type="hidden" name="a5" value="Hogwarts">
+            </div>
+            <div class="question"><h3>7. What color is a giraffe's tongue?</h3>
+                <label><input type="radio" name="q6" value="Blue" required> Blue</label><br>
+                <label><input type="radio" name="q6" value="Pink" required> Pink</label><br>
+                <label><input type="radio" name="q6" value="Purple" required> Purple</label><br>
+                <label><input type="radio" name="q6" value="Green" required> Green</label><br>
+                <input type="hidden" name="a6" value="Purple">
+            </div>
+            <div class="question"><h3>8. Which country is the largest producer of coffee?</h3>
+                <label><input type="radio" name="q7" value="Colombia" required> Colombia</label><br>
+                <label><input type="radio" name="q7" value="Brazil" required> Brazil</label><br>
+                <label><input type="radio" name="q7" value="Ethiopia" required> Ethiopia</label><br>
+                <label><input type="radio" name="q7" value="Vietnam" required> Vietnam</label><br>
+                <input type="hidden" name="a7" value="Brazil">
+            </div>
+            <div class="question"><h3>9. Which vegetable is known for making people cry when chopped?</h3>
+                <label><input type="radio" name="q8" value="Onion" required> Onion</label><br>
+                <label><input type="radio" name="q8" value="Garlic" required> Garlic</label><br>
+                <label><input type="radio" name="q8" value="Carrot" required> Carrot</label><br>
+                <label><input type="radio" name="q8" value="Tomato" required> Tomato</label><br>
+                <input type="hidden" name="a8" value="Onion">
+            </div>
+            <div class="question"><h3>10. Which of the following is not a type of cloud?</h3>
+                <label><input type="radio" name="q9" value="Cumulus" required> Cumulus</label><br>
+                <label><input type="radio" name="q9" value="Stratus" required> Stratus</label><br>
+                <label><input type="radio" name="q9" value="Cirrus" required> Cirrus</label><br>
+                <label><input type="radio" name="q9" value="Nimbus" required> Nimbus</label><br>
+                <input type="hidden" name="a9" value="Nimbus">
+            </div>
+            <div class="question"><h3>11. What is the primary purpose of a hydro-excavation truck?</h3>
+                <label><input type="radio" name="q10" value="To mix concrete" required> To mix concrete</label><br>
+                <label><input type="radio" name="q10" value="To dig holes using high-pressure water" required> To dig holes using high-pressure water</label><br>
+                <label><input type="radio" name="q10" value="To collect waste from construction sites" required> To collect waste from construction sites</label><br>
+                <label><input type="radio" name="q10" value="To clear snow" required> To clear snow</label><br>
+                <input type="hidden" name="a10" value="To dig holes using high-pressure water">
+            </div>
+            <div class="question"><h3>12. Which of the following programming languages is commonly used in web development?</h3>
+                <label><input type="radio" name="q11" value="Python" required> Python</label><br>
+                <label><input type="radio" name="q11" value="HTML" required> HTML</label><br>
+                <label><input type="radio" name="q11" value="Java" required> Java</label><br>
+                <label><input type="radio" name="q11" value="Ruby" required> Ruby</label><br>
+                <input type="hidden" name="a11" value="HTML">
+            </div>
+            <div class="question"><h3>13. What type of IT system would you use to monitor a hydro-excavation truck’s GPS location in real-time?</h3>
+                <label><input type="radio" name="q12" value="Oracle ERP Cloud" required> Oracle ERP Cloud</label><br>
+                <label><input type="radio" name="q12" value="Samsara" required> Samsara</label><br>
+                <label><input type="radio" name="q12" value="NetSuite" required> NetSuite</label><br>
+                <label><input type="radio" name="q12" value="Instagram" required> Instagram</label><br>
+                <input type="hidden" name="a12" value="Samsara">
+            </div>
+            <div class="question"><h3>14. What is the name of the standard data protection regulation in the European Union?</h3>
+                <label><input type="radio" name="q13" value="HIPAA" required> HIPAA</label><br>
+                <label><input type="radio" name="q13" value="GDPR" required> GDPR</label><br>
+                <label><input type="radio" name="q13" value="CCPA" required> CCPA</label><br>
+                <label><input type="radio" name="q13" value="PCI-DSS" required> PCI-DSS</label><br>
+                <input type="hidden" name="a13" value="GDPR">
+            </div>
+            <div class="question"><h3>15. What is a “sandbox” in the context of IT development?</h3>
+                <label><input type="radio" name="q14" value="A type of test environment" required> A type of test environment</label><br>
+                <label><input type="radio" name="q14" value="A place to store unused data" required> A place to store unused data</label><br>
+                <label><input type="radio" name="q14" value="A backup storage solution" required> A backup storage solution</label><br>
+                <label><input type="radio" name="q14" value="A web server software" required> A web server software</label><br>
+                <input type="hidden" name="a14" value="A type of test environment">
+            </div>
+            <div class="question"><h3>16. What is the main benefit of using hydro-excavation over traditional excavation methods?</h3>
+                <label><input type="radio" name="q15" value="It's faster" required> It's faster</label><br>
+                <label><input type="radio" name="q15" value="It's safer for sensitive underground utilities" required> It's safer for sensitive underground utilities</label><br>
+                <label><input type="radio" name="q15" value="It's cheaper" required> It's cheaper</label><br>
+                <label><input type="radio" name="q15" value="It requires no permits" required> It requires no permits</label><br>
+                <input type="hidden" name="a15" value="It's safer for sensitive underground utilities">
+            </div>
+            <div class="question"><h3>17. What does "IT" stand for?</h3>
+                <label><input type="radio" name="q16" value="Information Technology" required> Information Technology</label><br>
+                <label><input type="radio" name="q16" value="Intelligent Tools" required> Intelligent Tools</label><br>
+                <label><input type="radio" name="q16" value="International Trades" required> International Trades</label><br>
+                <label><input type="radio" name="q16" value="Internet Telephony" required> Internet Telephony</label><br>
+                <input type="hidden" name="a16" value="Information Technology">
+            </div>
+            <div class="question"><h3>18. Which company is known for its popular cloud computing services like Azure?</h3>
+                <label><input type="radio" name="q17" value="Microsoft" required> Microsoft</label><br>
+                <label><input type="radio" name="q17" value="Apple" required> Apple</label><br>
+                <label><input type="radio" name="q17" value="Amazon" required> Amazon</label><br>
+                <label><input type="radio" name="q17" value="Google" required> Google</label><br>
+                <input type="hidden" name="a17" value="Microsoft">
+            </div>
+            <div class="question"><h3>19. What is the main function of a hydro-excavation vacuum system?</h3>
+                <label><input type="radio" name="q18" value="To collect debris from construction sites" required> To collect debris from construction sites</label><br>
+                <label><input type="radio" name="q18" value="To carry water from the source to the excavation site" required> To carry water from the source to the excavation site</label><br>
+                <label><input type="radio" name="q18" value="To suck up the excavated material into a debris tank" required> To suck up the excavated material into a debris tank</label><br>
+                <label><input type="radio" name="q18" value="To clean construction equipment" required> To clean construction equipment</label><br>
+                <input type="hidden" name="a18" value="To suck up the excavated material into a debris tank">
+            </div>
+            <div class="question"><h3>20. Which IT tool is commonly used for project management within the Badger IT team?</h3>
+                <label><input type="radio" name="q19" value="Photoshop" required> Photoshop</label><br>
+                <label><input type="radio" name="q19" value="Zoho" required> Zoho</label><br>
+                <label><input type="radio" name="q19" value="Google Maps" required> Google Maps</label><br>
+                <label><input type="radio" name="q19" value="Dropbox" required> Dropbox</label><br>
+                <input type="hidden" name="a19" value="Zoho">
+            </div>
+            <br><input type="submit" value="Submit Quiz">
+        </form>
+        <div class="score" id="scoreDisplay"></div>
+    </div>
 
-    <button type="submit">Submit Quiz</button>
-  </form>
+    <div class="leaderboard">
+        <h2>🏆 Top 3 Leaderboard</h2>
+        <p>Scores are updated based on the latest submissions.</p>
+        <iframe src="https://docs.google.com/spreadsheets/d/0UpWhMHvHwkqT2awIhI8KW0243-WD_A/pubhtml?gid=0&single=true&widget=true&headers=false
+    </div>
 
-  <div class="result" id="result"></div>
-
-  <div class="leaderboard">
-    <h2>Top 3 Leaderboard</h2>
-    <ul id="leaderboardList">
-      <li>Loading leaderboard...</li>
-    </ul>
-  </div>
-
-  <form id="googleForm" action="https://docs.google.com/forms/d/1srktML_omTDZ3qXxqDcvCTCEhEMK2EbB_Bnk0HygKKI/formResponse" method="POST" target="hidden_iframe" style="display:none;">
-    <input type="hidden" name="entry.2133793126" id="gName">
-    <input type="hidden" name="entry.1512765942" id="gScore">
-    <input type="hidden" name="entry.1357819382" id="gDate">
-    <iframe name="hidden_iframe" style="display:none;"></iframe>
-  </form>
-
-  <script>
-    const questions = [
-      { q: "What is the largest planet in our solar system?", a: "C", options: ["A) Earth", "B) Mars", "C) Jupiter", "D) Saturn"] },
-      { q: "Which of the following animals is known to have the longest lifespan?", a: "B", options: ["A) Elephant", "B) Tortoise", "C) Whale", "D) Parrot"] },
-      { q: "What is the capital city of France?", a: "C", options: ["A) Berlin", "B) Madrid", "C) Paris", "D) London"] },
-      { q: "Which movie features a giant shark named Jaws?", a: "B", options: ["A) Titanic", "B) Jaws", "C) Finding Nemo", "D) Sharknado"] },
-      { q: "Which fruit is known as the 'king of fruits' due to its strong smell?", a: "B", options: ["A) Pineapple", "B) Durian", "C) Mango", "D) Banana"] },
-      { q: "What is the name of the famous wizarding school in the Harry Potter series?", a: "A", options: ["A) Hogwarts", "B) Narnia Academy", "C) The Shire Institute", "D) Rivendell Academy"] },
-      { q: "What color is a giraffe's tongue?", a: "C", options: ["A) Blue", "B) Pink", "C) Purple", "D) Green"] },
-      { q: "Which country is the largest producer of coffee?", a: "B", options: ["A) Colombia", "B) Brazil", "C) Ethiopia", "D) Vietnam"] },
-      { q: "Which vegetable is known for making people cry when chopped?", a: "A", options: ["A) Onion", "B) Garlic", "C) Carrot", "D) Tomato"] },
-      { q: "Which of the following is not a type of cloud?", a: "D", options: ["A) Cumulus", "B) Stratus", "C) Cirrus", "D) Nimbus"] },
-      { q: "What is the primary purpose of a hydro-excavation truck?", a: "B", options: ["A) To mix concrete", "B) To dig holes using high-pressure water", "C) To collect waste from construction sites", "D) To clear snow"] },
-      { q: "Which of the following programming languages is commonly used in web development?", a: "B", options: ["A) Python", "B) HTML", "C) Java", "D) Ruby"] },
-      { q: "What type of IT system would you use to monitor a hydro-excavation truck’s GPS location in real-time?", a: "B", options: ["A) ERP system", "B) GPS tracking software", "C) Financial management software", "D) Social media platform"] },
-      { q: "What is the name of the standard data protection regulation in the European Union?", a: "B", options: ["A) HIPAA", "B) GDPR", "C) CCPA", "D) PCI-DSS"] },
-      { q: "What is a 'sandbox' in the context of IT development?", a: "A", options: ["A) A type of test environment", "B) A place to store unused data", "C) A backup storage solution", "D) A web server software"] },
-      { q: "What is the main benefit of using hydro-excavation over traditional excavation methods?", a: "B", options: ["A) It's faster", "B) It's safer for sensitive underground utilities", "C) It's cheaper", "D) It requires no permits"] },
-      { q: "What does 'IT' stand for?", a: "A", options: ["A) Information Technology", "B) Intelligent Tools", "C) International Trades", "D) Internet Telephony"] },
-      { q: "Which company is known for its popular cloud computing services like AWS?", a: "C", options: ["A) Microsoft", "B) Apple", "C) Amazon", "D) Google"] },
-      { q: "What is the main function of a hydro-excavation vacuum system?", a: "C", options: ["A) To collect debris from construction sites", "B) To carry water from the source to the excavation site", "C) To suck up the excavated material into a debris tank", "D) To clean construction equipment"] },
-      { q: "Which IT tool is commonly used for project management within an IT team?", a: "B", options: ["A) Photoshop", "B) Zoho", "C) Google Maps", "D) Dropbox"] }
-    ];
-
-    const questionsDiv = document.getElementById("questions");
-    questions.forEach((q, i) => {
-      const div = document.createElement("div");
-      div.className = "question";
-      div.innerHTML = `<p>Q${i + 1}. ${q.q}</p>` + q.options.map((opt, j) =>
-        `<label><input type="radio" name="q${i}" value="${String.fromCharCode(65 + j)}" required> ${opt}</label><br/>`
-      ).join("");
-      questionsDiv.appendChild(div);
-    });
-
-    document.getElementById("quizForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const form = e.target;
-      const name = document.getElementById("username").value.trim();
-      let score = 0;
-      questions.forEach((q, i) => {
-        const selected = form.querySelector(`input[name="q${i}"]:checked`);
-        if (selected && selected.value === q.a) score++;
-      });
-      document.getElementById("result").textContent = `Hi ${name}, you scored ${score} out of ${questions.length}!`;
-
-      // Submit to Google Form
-      document.getElementById("gName").value = name;
-      document.getElementById("gScore").value = score;
-      document.getElementById("gDate").value = new Date().toISOString().split('T')[0];
-      document.getElementById("googleForm").submit();
-    });
-
-    // Fetch leaderboard from published Google Sheet
-  fetch("https://docs.google.com/spreadsheets/d/1u1QvjyrIHH8m4k1jby-OIxhhr2OZRlehoEuINKpUY0Y/gviz/tq?tqx=out:json&tq=select B,C order by C desc limit 3")
-  .then(res => res.text())
-  .then(text => {
-    const json = JSON.parse(text.substr(47).slice(0, -2));
-    const rows = json.table.rows;
-    const list = document.getElementById("leaderboardList");
-    list.innerHTML = "";
-    rows.forEach(row => {
-      const name = row.c[0]?.v || "Anonymous";
-      const score = row.c[1]?.v || 0;
-      const li = document.createElement("li");
-      li.textContent = `${name}: ${score} pts`;
-      list.appendChild(li);
-    });
-  })
-  .catch(err => {
-    document.getElementById("leaderboardList").innerHTML = "<li>Unable to load leaderboard.</li>";
-    console.error("Leaderboard fetch error:", err);
-  });
-  </script>
-</body>
-</html>
+    <script>
+        document.getElementById('quizForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let score = 0;
+            for (let i = 0; i < 20; i++) {
+                const selected = document.querySelector('input[name="q' + i + '"]:checked');
+                const correct = document.querySelector('input[name="a' + i + '"]').value;
+                if (selected && selected.value === correct) {
+                    score++;
+                }
+            }
+            document.getElementById('scoreDisplay').innerText = "Your score
