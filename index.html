@@ -192,7 +192,14 @@
   document.getElementById('scoreDisplay').innerText = "Your score: " + score + " out of " + questions.length + " | Time: " + timeStr;
 
   updateLocalLeaderboard(name, score, date, timeStr);
-  submitToGoogleForm(name, score, date);
+  submitToGoogleForm(name, score, date){
+      const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdhtKfXSKnf14bU3dOVuika6sTGRftEFZuWEje6ZJ4FxKtdFA/formResponse";
+      const data = new FormData();
+      data.append("entry.238187609", name);
+      data.append("entry.822603217", score);
+      data.append("entry.2090656816", date);
+      fetch(formUrl, { method: "POST", mode: "no-cors", body: data });
+    }
 
   // ✅ Do NOT clear or hide the questionsDiv
 });
@@ -245,6 +252,7 @@
   </script>
 </body>
 </html>
+
 
 
 
