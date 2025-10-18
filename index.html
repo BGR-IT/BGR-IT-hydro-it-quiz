@@ -97,12 +97,9 @@
   </div>
 
   <div class="container">
-  <h2>Google Sheet Leaderboard</h2>
-  <iframe 
-    src="https://docs.google.com/spreadsheets/d/15EObAvl_JESL0UpWmMHWwkqT2awIh8KW0243-WD_A/pubhtml?gid=0&single=true&widget=true&headers=false" 
-    width="100%" 
-    height="400" 
-   
+    <h2>Google Sheet Leaderboard</h2>
+    https://docs.google.com/spreadsheets/d/15EQbAvl_iESL0UpWhMHvHwkqT2awIhI8KW0243-WD_A/pubhtml?gid=0&single=true&widget=true&headers=false</iframe>
+  </div>
 
   <script>
     const questions = [
@@ -171,39 +168,25 @@
     };
 
     document.getElementById('quizForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  stopTimer();
-
-  let score = 0;
-  for (let i = 0; i < questions.length; i++) {
-    const selected = document.querySelector('input[name="q' + i + '"]:checked');
-    const correct = document.querySelector('input[name="a' + i + '"]').value;
-    if (selected && selected.value === correct) {
-      score++;
-    }
-  }
-
-  const name = document.getElementById("username").value.trim();
-  const date = document.getElementById("date").value;
-  const min = Math.floor(secondsElapsed / 60);
-  const sec = secondsElapsed % 60;
-  const timeStr = `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
-
-  document.getElementById('scoreDisplay').innerText = "Your score: " + score + " out of " + questions.length + " | Time: " + timeStr;
-
-  updateLocalLeaderboard(name, score, date, timeStr);
-  submitToGoogleForm(name, score, date){
-      const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdhtKfXSKnf14bU3dOVuika6sTGRftEFZuWEje6ZJ4FxKtdFA/formResponse";
-      const data = new FormData();
-      data.append("entry.238187609", name);
-      data.append("entry.822603217", score);
-      data.append("entry.2090656816", date);
-      fetch(formUrl, { method: "POST", mode: "no-cors", body: data });
-    }
-
-  // ✅ Do NOT clear or hide the questionsDiv
-});
-
+      e.preventDefault();
+      stopTimer();
+      let score = 0;
+      for (let i = 0; i < questions.length; i++) {
+        const selected = document.querySelector('input[name="q' + i + '"]:checked');
+        const correct = document.querySelector('input[name="a' + i + '"]').value;
+        if (selected && selected.value === correct) {
+          score++;
+        }
+      }
+      const name = document.getElementById("username").value.trim();
+      const date = document.getElementById("date").value;
+      const min = Math.floor(secondsElapsed / 60);
+      const sec = secondsElapsed % 60;
+      const timeStr = `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+      document.getElementById('scoreDisplay').innerText = "Your score: " + score + " out of " + questions.length + " | Time: " + timeStr;
+      updateLocalLeaderboard(name, score, date, timeStr);
+      submitToGoogleForm(name, score, date);
+    });
 
     function updateLocalLeaderboard(name, score, date, timeStr) {
       let leaderboard = JSON.parse(localStorage.getItem("leaderboard") || "[]");
@@ -252,7 +235,3 @@
   </script>
 </body>
 </html>
-
-
-
-
