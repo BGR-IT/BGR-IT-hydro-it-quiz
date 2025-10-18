@@ -171,25 +171,32 @@
     };
 
     document.getElementById('quizForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      stopTimer();
-      let score = 0;
-      for (let i = 0; i < questions.length; i++) {
-        const selected = document.querySelector('input[name="q' + i + '"]:checked');
-        const correct = document.querySelector('input[name="a' + i + '"]').value;
-        if (selected && selected.value === correct) {
-          score++;
-        }
-      }
-      const name = document.getElementById("username").value.trim();
-      const date = document.getElementById("date").value;
-      const min = Math.floor(secondsElapsed / 60);
-      const sec = secondsElapsed % 60;
-      const timeStr = `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
-      document.getElementById('scoreDisplay').innerText = "Your score: " + score + " out of " + questions.length + " | Time: " + timeStr;
-      updateLocalLeaderboard(name, score, date, timeStr);
-      submitToGoogleForm(name, score, date);
-    });
+  e.preventDefault();
+  stopTimer();
+
+  let score = 0;
+  for (let i = 0; i < questions.length; i++) {
+    const selected = document.querySelector('input[name="q' + i + '"]:checked');
+    const correct = document.querySelector('input[name="a' + i + '"]').value;
+    if (selected && selected.value === correct) {
+      score++;
+    }
+  }
+
+  const name = document.getElementById("username").value.trim();
+  const date = document.getElementById("date").value;
+  const min = Math.floor(secondsElapsed / 60);
+  const sec = secondsElapsed % 60;
+  const timeStr = `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
+
+  document.getElementById('scoreDisplay').innerText = "Your score: " + score + " out of " + questions.length + " | Time: " + timeStr;
+
+  updateLocalLeaderboard(name, score, date, timeStr);
+  submitToGoogleForm(name, score, date);
+
+  // ✅ Do NOT clear or hide the questionsDiv
+});
+
 
     function updateLocalLeaderboard(name, score, date, timeStr) {
       let leaderboard = JSON.parse(localStorage.getItem("leaderboard") || "[]");
@@ -238,5 +245,6 @@
   </script>
 </body>
 </html>
+
 
 
